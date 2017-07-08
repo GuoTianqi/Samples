@@ -1,4 +1,4 @@
-group 'com.gta.faith'
+group 'com.gtq.faith'
 version '1.0-SNAPSHOT'
 
 buildscript {
