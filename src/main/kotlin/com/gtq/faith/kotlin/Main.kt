@@ -38,3 +38,12 @@ fun main(args: Array<String>) {
     println(nullObject.toString())
 }
 
+abstract class Source<out T> {
+    abstract fun nextT(): T
+}
+
+fun demo(strs: Source<String>) {
+    val objects: Source<Any> = strs // This is OK, since T is an out-parameter
+    // ...
+}
+
