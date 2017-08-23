@@ -36,6 +36,8 @@ fun main(args: Array<String>) {
 
     var nullObject: Int? = null
     println(nullObject.toString())
+
+    println("nanoTime = ${System.nanoTime()}")
 }
 
 abstract class Source<out T> {

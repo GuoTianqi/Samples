@@ -1,4 +1,4 @@
-package com.gtq.faith.kotlin
+package com.gtq.faith.kotlin.cls
 
 open class Base {
     open fun v() {

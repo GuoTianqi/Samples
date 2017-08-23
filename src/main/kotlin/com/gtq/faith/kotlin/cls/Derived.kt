@@ -1,4 +1,6 @@
-package com.gtq.faith.kotlin
+package com.gtq.faith.kotlin.cls
+
+import com.gtq.faith.kotlin.cls.Base
 
 class Derived: Base() {
     override fun v() {
