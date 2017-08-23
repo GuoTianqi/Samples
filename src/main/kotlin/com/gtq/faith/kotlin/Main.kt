@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
     val child = Person("XXXX", "Guo", 1)
     person.addChild(child)
 
-    for (child in person.childend) {
+    for (child in person.children) {
         println("---------")
         println(child.toString())
     }

@@ -8,15 +8,20 @@ class Person(val firstName: String, val lastName: String) {
 
     val isOld = this.age > 60
 
-    private var _childend: MutableList<Person>? = null
-
-    val childend: MutableList<Person>
+    val hasClild: Boolean
         get() {
-            if (_childend == null) {
-                _childend = mutableListOf()
+            return children.isEmpty()
+        }
+
+    private var _children: MutableList<Person>? = null
+
+    val children: MutableList<Person>
+        get() {
+            if (_children == null) {
+                _children = mutableListOf()
             }
 
-            return _childend ?: throw AssertionError("")
+            return _children ?: throw AssertionError("")
         }
 
     constructor(firstName: String, lastName: String, age: Int) : this(firstName, lastName) {
@@ -24,7 +29,7 @@ class Person(val firstName: String, val lastName: String) {
     }
 
     fun addChild(person: Person) {
-        childend.add(person)
+        children.add(person)
     }
 
     override fun toString(): String {
