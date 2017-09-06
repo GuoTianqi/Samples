@@ -16,5 +16,7 @@ public class Main {
         System.out.println("Hello world!");
 
         assert 1 == 2 : "错误";
+
+        RsaSample.testRsa();
     }
 }
