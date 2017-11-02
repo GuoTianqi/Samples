@@ -1,0 +1,7 @@
+
+.gradle/
+.idea/
+JavaSample.iml
+QyAuthFileRelease
+build/
+out/

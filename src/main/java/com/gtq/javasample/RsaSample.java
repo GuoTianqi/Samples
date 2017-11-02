@@ -25,7 +25,7 @@ public class RsaSample {
             PublicKey publicKey = getPublicKey("QySecurityCodeKeyStore.jks",
                     "qysecuritycode","xM!@#(*&");
 
-            String encryptText = encryptByPrivateKey(privateKey, "QY_HELLOWORLD_#BFEBFBFF000306C3#_13280483028423");
+            String encryptText = encryptByPrivateKey(privateKey, "QY_HELLOWORLD_#B0-83-FE-BD-F6-D3#_13280483028423");
             System.out.println("encryptText = \n" + encryptText);
             String decryptText = descryptByPublicKey(publicKey, encryptText);
             System.out.println("decryptText = \n" + decryptText);
