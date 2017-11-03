@@ -12,15 +12,15 @@ import java.util.Collections;
 public class SortUtils {
     public static void main(String[] args) {
         int[] array = new int[0];
-        shellInsertSort(array);
+        heapSort(array);
         System.out.println(Arrays.toString(array));
 
         array = new int[] { 1000 };
-        shellInsertSort(array);
+        heapSort(array);
         System.out.println(Arrays.toString(array));
 
         array = new int[] { 1000 , 1, 45, 4, 6, 90, 90, 434};
-        shellInsertSort(array);
+        heapSort(array);
         System.out.println(Arrays.toString(array));
     }
 
@@ -73,5 +73,46 @@ public class SortUtils {
                 }
             }
         }
+    }
+
+    public static void heapSort(int[] array) {
+        int size = array.length;
+        buildHeap(array, size);
+        for (int i = size - 1; i > 0; i--) {
+            swap(array, i, 0);
+            adjustHeap(array, 0, i);
+        }
+    }
+
+
+    private static void adjustHeap(int[] array, int index, int size) {
+        int lChildIndex = index * 2 + 1;
+        int rChildIndex = index * 2 + 2;
+        int max = index;
+        if (index < size / 2) {
+            if (lChildIndex < size && array[max] < array[lChildIndex]) {
+                max = lChildIndex;
+            }
+            if (rChildIndex < size && array[max] < array[rChildIndex]) {
+                max = rChildIndex;
+            }
+
+            if (max != index) {
+                swap(array, max, index);
+                adjustHeap(array, max, size);
+            }
+        }
+    }
+
+    private static void buildHeap(int[] array, int size) {
+        for (int i = size / 2; i >= 0; i--) {
+            adjustHeap(array, i, size);
+        }
+    }
+
+    private static void swap(int[] array, int i, int j) {
+        int tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
     }
 }
