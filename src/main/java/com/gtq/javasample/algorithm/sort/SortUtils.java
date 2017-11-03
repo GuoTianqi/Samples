@@ -31,7 +31,7 @@ public class SortUtils {
 
         try {
             for (Method method : sortMethods) {
-                System.out.println(method.getName());
+                System.out.println("===== " + method.getName() + "=====");
 
                 int[] array = new int[0];
                 method.invoke(null, array);
