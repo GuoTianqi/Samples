@@ -12,15 +12,15 @@ import java.util.Collections;
 public class SortUtils {
     public static void main(String[] args) {
         int[] array = new int[0];
-        straightInsertSort(array);
+        shellInsertSort(array);
         System.out.println(Arrays.toString(array));
 
         array = new int[] { 1000 };
-        straightInsertSort(array);
+        shellInsertSort(array);
         System.out.println(Arrays.toString(array));
 
         array = new int[] { 1000 , 1, 45, 4, 6, 90, 90, 434};
-        straightInsertSort(array);
+        shellInsertSort(array);
         System.out.println(Arrays.toString(array));
     }
 
@@ -34,24 +34,42 @@ public class SortUtils {
         }
 
         for (int i = 1; i < array.length; i++) {
-            for (int j = i; j > 0; j--) {
-                if (array[j] < array[j - 1]) {
-                    int tmp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = tmp;
-                } else {
+            int sortingValue = array[i];
+            int j = i - 1;
+            while (array[j] > sortingValue) {
+                // 将前面的大数值移到后面
+                array[j + 1] = array[j];
+                j--;
+                if (j == -1) {
                     break;
                 }
             }
+
+            array[j + 1] = sortingValue;
         }
     }
 
+    /**
+     * 希尔排序
+     * @param array
+     */
     public static void shellInsertSort(int[] array) {
         int step = array.length;
         while((step /= 2) != 0) {
-            for (int i = step; i < array.length; i += step) {
-                for (int j = i; j > 0; j -= step) {
-                    if (array[j] < array[j - ])
+            for (int k = 0; k < step; k++) {
+                for (int i = k + step; i < array.length; i += step) {
+                    int sortingValue = array[i];
+                    int j = i - step;
+                    while (array[j] > sortingValue) {
+                        // 将前面的大数值移到后面
+                        array[j + step] = array[j];
+                        j -= step;
+                        if (j < 0) {
+                            break;
+                        }
+                    }
+
+                    array[j + step] = sortingValue;
                 }
             }
         }
