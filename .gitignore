@@ -5,3 +5,7 @@ JavaSample.iml
 QyAuthFileRelease
 build/
 out/
+.projectile
+GPATH
+GRTAGS
+GTAGS
