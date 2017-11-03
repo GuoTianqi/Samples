@@ -3,29 +3,58 @@ package com.gtq.javasample.algorithm.sort;
 import com.sun.deploy.util.ArrayUtil;
 
 import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.*;
 
 /**
  *
  */
 public class SortUtils {
     public static void main(String[] args) {
-        int[] array = new int[0];
-        heapSort(array);
-        System.out.println(Arrays.toString(array));
+        Method[] methods = SortUtils.class.getMethods();
+        List<Method> sortMethods = new ArrayList<>();
+        for (Method method : methods) {
+            if (Modifier.isStatic(method.getModifiers()) &&
+                    method.getName().endsWith("Sort")) {
+                sortMethods.add(method);
+            }
+        }
 
-        array = new int[] { 1000 };
-        heapSort(array);
-        System.out.println(Arrays.toString(array));
+        Collections.sort(sortMethods, new Comparator<Method>() {
+            @Override
+            public int compare(Method o1, Method o2) {
+                return o1.getName().compareToIgnoreCase(o2.getName());
+            }
+        });
 
-        array = new int[] { 1000 , 1, 45, 4, 6, 90, 90, 434};
-        heapSort(array);
-        System.out.println(Arrays.toString(array));
+        try {
+            for (Method method : sortMethods) {
+                System.out.println(method.getName());
+
+                int[] array = new int[0];
+                method.invoke(null, array);
+                System.out.println(Arrays.toString(array));
+
+                array = new int[]{1000};
+                method.invoke(null, array);
+                System.out.println(Arrays.toString(array));
+
+                array = new int[]{1000, 1, 45, 4, 6, 90, 90, 434};
+                method.invoke(null, array);
+                System.out.println(Arrays.toString(array));
+            }
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
      * 直接插入排序
+     *
      * @param array
      */
     public static void straightInsertSort(int[] array) {
@@ -51,11 +80,12 @@ public class SortUtils {
 
     /**
      * 希尔排序
+     *
      * @param array
      */
     public static void shellInsertSort(int[] array) {
         int step = array.length;
-        while((step /= 2) != 0) {
+        while ((step /= 2) != 0) {
             for (int k = 0; k < step; k++) {
                 for (int i = k + step; i < array.length; i += step) {
                     int sortingValue = array[i];
@@ -75,6 +105,11 @@ public class SortUtils {
         }
     }
 
+    /**
+     * 堆排序
+     *
+     * @param array
+     */
     public static void heapSort(int[] array) {
         int size = array.length;
         buildHeap(array, size);
@@ -84,6 +119,15 @@ public class SortUtils {
         }
     }
 
+    public static void bubbleSort(int[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (array[j + 1] < array[j]) {
+                    swap(array, j + 1, j);
+                }
+            }
+        }
+    }
 
     private static void adjustHeap(int[] array, int index, int size) {
         int lChildIndex = index * 2 + 1;
