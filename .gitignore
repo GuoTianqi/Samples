@@ -9,3 +9,8 @@ out/
 GPATH
 GRTAGS
 GTAGS
+bin
+.classpath
+.project
+.settings/
+.vscode/

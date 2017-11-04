@@ -1,12 +1,13 @@
 package com.gtq.javasample.algorithm.sort;
 
-import com.sun.deploy.util.ArrayUtil;
-
-import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  *
@@ -32,7 +33,6 @@ public class SortUtils {
         try {
             for (Method method : sortMethods) {
                 System.out.println("===== " + method.getName() + "=====");
-
                 int[] array = new int[0];
                 method.invoke(null, array);
                 System.out.println(Arrays.toString(array));
@@ -119,6 +119,10 @@ public class SortUtils {
         }
     }
 
+    /**
+     * 冒泡排序
+     * @param array
+     */
     public static void bubbleSort(int[] array) {
         for (int i = array.length - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
@@ -147,13 +151,13 @@ public class SortUtils {
             }
         }
     }
-
+    
     private static void buildHeap(int[] array, int size) {
         for (int i = size / 2; i >= 0; i--) {
             adjustHeap(array, i, size);
         }
     }
-
+    
     private static void swap(int[] array, int i, int j) {
         int tmp = array[i];
         array[i] = array[j];
