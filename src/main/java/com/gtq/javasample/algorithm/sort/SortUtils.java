@@ -119,20 +119,6 @@ public class SortUtils {
         }
     }
 
-    /**
-     * 冒泡排序
-     * @param array
-     */
-    public static void bubbleSort(int[] array) {
-        for (int i = array.length - 1; i > 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (array[j + 1] < array[j]) {
-                    swap(array, j + 1, j);
-                }
-            }
-        }
-    }
-
     private static void adjustHeap(int[] array, int index, int size) {
         int lChildIndex = index * 2 + 1;
         int rChildIndex = index * 2 + 2;
@@ -156,6 +142,53 @@ public class SortUtils {
         for (int i = size / 2; i >= 0; i--) {
             adjustHeap(array, i, size);
         }
+    }
+
+    /**
+     * 冒泡排序
+     * @param array
+     */
+    public static void bubbleSort(int[] array) {
+        for (int i = array.length - 1; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                if (array[j + 1] < array[j]) {
+                    swap(array, j + 1, j);
+                }
+            }
+        }
+    }
+
+    public static void quickSort(int[] array) {
+        quickSortInner(array, 0, array.length - 1);
+    }
+
+    private static void quickSortInner(int[] array, int low, int high) {
+        if (low < high) {
+            int loc = quickSortPartition(array, low, high);
+            quickSortInner(array, 0, loc - 1);
+            quickSortInner(array, loc + 1, high);
+        }
+    }
+
+    private static int quickSortPartition(int[] array, int low, int high) {
+        int pivot = array[low];
+        while (low < high) {
+            // 找出小于pivot的数
+            while (low < high && array[high] > pivot) {
+                high--;
+            }
+            array[low] = array[high];
+
+            // 找出大于pivot的数
+            while (low < high && array[low] <= pivot) {
+                low++;
+            }
+            array[high] = array[low];
+        }
+
+        array[low] = pivot;
+
+        return low;
     }
     
     private static void swap(int[] array, int i, int j) {
