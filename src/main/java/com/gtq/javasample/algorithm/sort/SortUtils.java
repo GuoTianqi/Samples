@@ -32,7 +32,7 @@ public class SortUtils {
 
         try {
             for (Method method : sortMethods) {
-                System.out.println("===== " + method.getName() + "=====");
+                System.out.println("===== " + method.getName() + " =====");
                 int[] array = new int[0];
                 method.invoke(null, array);
                 System.out.println(Arrays.toString(array));
@@ -190,7 +190,70 @@ public class SortUtils {
 
         return low;
     }
-    
+
+    public static void mergeSort(int[] array) {
+        for (int gap = 1; gap < array.length; gap = 2 * gap) {
+            groupMerge(array, gap);
+        }
+    }
+
+    /**
+     * 分组合并
+     */
+    private static void groupMerge(int[] array, int gap) {
+        int i = 0;
+        // 归并gap长度的两个相邻子表
+        for (i = 0; i + 2 * gap - 1 < array.length; i = i + 2 * gap) {
+            merge(array, i, i + gap - 1, i + 2 * gap - 1);
+        }
+
+        // 余下两个子表，后者长度小于gap
+        if (i + gap - 1 < array.length) {
+            merge(array, i, i + gap - 1, array.length - 1);
+        }
+    }
+
+    /**
+     * 合并
+     */
+    private static void merge(int[] array, int low, int mid, int high) {
+        int i = low;
+        int j = mid + 1;
+        int[] tmpArray = new int[high - low + 1];
+        int k = 0;
+        // 遍历第一段和第二段数组，知道有一个遍历完
+        while (i <= mid && j <= high) {
+            // 比较哪个最小，存入临时数组，继续遍历，直到到达其中一个数组边界
+            if (array[i] <= array[j]) {
+                tmpArray[k] = array[i];
+                i++;
+            } else {
+                tmpArray[k] = array[j];
+                j++;
+            }
+            k++;
+        }
+
+        // 将第一段没有遍历完的元素存入临时数组
+        while (i <= mid) {
+            tmpArray[k] = array[i];
+            i++;
+            k++;
+        }
+
+        // 将第二段没有遍历完的元素存入临时数组
+        while (j <= high) {
+            tmpArray[k] = array[j];
+            j++; 
+            k++;
+        }
+
+        // 将有序的临时数组复制到原始数组中
+        for (i = 0; i < tmpArray.length; i++) {
+            array[low + i] = tmpArray[i];
+        }
+    }
+
     private static void swap(int[] array, int i, int j) {
         int tmp = array[i];
         array[i] = array[j];
