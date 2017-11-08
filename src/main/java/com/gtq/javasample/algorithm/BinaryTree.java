@@ -269,6 +269,73 @@ public class BinaryTree {
         return treeNodeCount(root.leftChild) + treeNodeCount(root.rightChild) + 1;
     }
 
+    /**
+     * 二叉树某层中的节点数
+     * 1）根节点为空，则节点数为0；
+     * 2）层为1，则节点数为1（即根节点）
+     * 3）递归思想：二叉树第k层节点数=左子树第k-1层节点数+右子树第k-1层节点数
+     *
+     * @param root
+     * @return
+     */
+    public static int treeNodeCountAtLevel(Node root, int level) {
+        if (root == null || level < 1) {
+            return 0;
+        }
+
+        if (level == 1) {
+            return 1;
+        }
+
+        return treeNodeCountAtLevel(root.leftChild, level - 1) +
+                treeNodeCountAtLevel(root.rightChild, level - 1);
+    }
+
+    /**
+     * 二叉树叶子节点数
+     * 叶子节点，又叫终端节点，是左右子树都是空的节点。
+     *
+     * @param root
+     * @return
+     */
+    public static int treeLeafsCount(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        if (root.leftChild == null && root.rightChild == null) {
+            return 1;
+        }
+
+        return treeLeafsCount(root.leftChild) + treeLeafsCount(root.rightChild);
+    }
+
+    /**
+     * 翻转二叉树
+     * 翻转二叉树，又叫求二叉树的镜像，就是把二叉树的左右子树对调
+     *
+     * @param root
+     * @return
+     */
+    public static Node invertTree(Node root) {
+        if (root == null) {
+            return null;
+        }
+
+        if (root.leftChild == null && root.rightChild == null) {
+            return root;
+        }
+
+        invertTree(root.leftChild);
+        invertTree(root.rightChild);
+
+        Node tmpNode = root.leftChild;
+        root.leftChild = root.rightChild;
+        root.rightChild = tmpNode;
+
+        return root;
+    }
+
     public static void main(String[] args) {
         int length = 10;
         int[] values = new int[length];
