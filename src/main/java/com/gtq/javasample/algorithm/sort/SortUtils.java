@@ -158,6 +158,9 @@ public class SortUtils {
         }
     }
 
+    /**
+     * 快速排序
+     */
     public static void quickSort(int[] array) {
         quickSortInner(array, 0, array.length - 1);
     }
