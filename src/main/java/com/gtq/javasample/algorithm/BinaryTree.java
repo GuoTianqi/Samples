@@ -219,6 +219,56 @@ public class BinaryTree {
         return Math.max(leftDepth, rightDepth) + 1;
     }
 
+    /**
+     * 二叉树的宽度
+     * 二叉树的宽度定义为各层节点数的最大值
+     *
+     * @param root
+     */
+    public static int widthOfTree(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        LinkedList<Node> queue = new LinkedList<>();
+        queue.addFirst(root);
+
+        int maxWidth = 1;
+        int curWidth = 0;
+
+        while (queue.size() > 0) {
+            curWidth = queue.size();
+            for (int i = 0; i < curWidth; i++) {
+                Node node = queue.removeFirst();
+                if (node.leftChild != null) {
+                    queue.addLast(node.leftChild);
+                }
+                if (node.rightChild != null) {
+                    queue.addLast(node.rightChild);
+                }
+            }
+
+            maxWidth = Math.max(maxWidth, curWidth);
+        }
+
+        return maxWidth;
+    }
+
+    /**
+     * 二叉树的所有节点数
+     * 递归思想：二叉树所有节点数=左子树节点数+右子树节点数+1
+     *
+     * @param root
+     * @return
+     */
+    public static int treeNodeCount(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return treeNodeCount(root.leftChild) + treeNodeCount(root.rightChild) + 1;
+    }
+
     public static void main(String[] args) {
         int length = 10;
         int[] values = new int[length];
@@ -252,5 +302,7 @@ public class BinaryTree {
         levelOrderTraverseTree(root, node1 -> System.out.print(node1.value + " "));
 
         System.out.println("\n树深度: " + depthOfTree(root));
+        System.out.println("\n树宽度: " + widthOfTree(root));
+        System.out.println("\n节点数: " + treeNodeCount(root));
     }
 }
