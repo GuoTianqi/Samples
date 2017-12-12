@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane alignment="center" hgap="10" stylesheets="/sample/sample.css" vgap="10" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.SampleController">
+   <children>
+       <Button onAction="#sayHelloWorld" text="Say 'Hello World'" textAlignment="CENTER" textFill="#498a3c" GridPane.columnIndex="2" GridPane.rowIndex="3">
+    </Button>
+       <Label fx:id="helloWorld" alignment="CENTER" prefHeight="15.0" prefWidth="204.0" text="gsefwetfgwetgwe" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+      <ToggleButton mnemonicParsing="false" text="ToggleButton" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+      <ScrollBar orientation="VERTICAL" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+      <ColorPicker GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <ComboBox prefWidth="150.0" GridPane.rowIndex="2" />
+      <Hyperlink text="www.baidu.com" GridPane.rowIndex="3" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+         <image>
+            <Image url="@ic_launcher.png" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="100.0" prefWidth="169.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <Label text="Label" />
+            <ChoiceBox prefWidth="150.0" />
+         </children>
+      </VBox>
+      <TilePane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+            <Button mnemonicParsing="false" text="Button" />
+            <CheckBox mnemonicParsing="false" text="CheckBox" />
+         </children>
+      </TilePane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <children>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Button" />
+            <CheckBox layoutX="14.0" layoutY="65.0" mnemonicParsing="false" prefWidth="78.0" text="CheckBox" />
+         </children>
+      </AnchorPane>
+      <Accordion GridPane.rowIndex="1" />
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Untitled Tab 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+          <Tab text="Untitled Tab 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+</GridPane>
