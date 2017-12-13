@@ -32,14 +32,13 @@
     <exclude name="**/vssver2.scc/**"/>
   </patternset>
   <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
     <include name="*.egg"/>
+    <include name="*.ane"/>
     <include name="*.jar"/>
     <include name="*.ear"/>
-    <include name="*.apk"/>
-    <include name="*.swc"/>
-    <include name="*.war"/>
-    <include name="*.ane"/>
-    <include name="*.zip"/>
   </patternset>
   <patternset id="compiler.resources">
     <exclude name="**/?*.java"/>
@@ -205,7 +204,7 @@
       <manifest>
         <attribute name="Implementation-Title" value="JavaFX"/>
         <attribute name="Implementation-Version" value="1.0.0"/>
-        <attribute name="Implementation-Vendor" value=""/>
+        <attribute name="Implementation-Vendor" value="Qianyin"/>
       </manifest>
     </fx:jar>
     <condition property="app.icon.path" value="${basedir}/src/sample/launcher_48x48.ico">
@@ -213,7 +212,7 @@
     </condition>
     <fx:deploy width="600" height="400" updatemode="background" outdir="${artifact.temp.output.JavaFXApp}/deploy" outfile="JavaFXApp" nativeBundles="all">
       <fx:application refid="JavaFXApp_id"/>
-      <fx:info title="JavaFX">
+      <fx:info title="JavaFX" vendor="Qianyin">
         <fx:icon href="${app.icon.path}"/>
       </fx:info>
       <fx:resources>
