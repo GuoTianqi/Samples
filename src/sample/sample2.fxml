@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.ToggleGroup?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sample2Controller">
+   <children>
+           <RadioButton layoutX="216.0" layoutY="234.0" mnemonicParsing="false" text="RadioButton">
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup" />
+         </toggleGroup></RadioButton>
+           <RadioButton layoutX="329.0" layoutY="234.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup" />
+           <RadioButton layoutX="429.0" layoutY="234.0" mnemonicParsing="false" text="RadioButton" toggleGroup="$toggleGroup" />
+      <ToggleButton layoutX="24.0" layoutY="29.0" mnemonicParsing="false" text="ToggleButton">
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup1" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton layoutX="145.0" layoutY="29.0" mnemonicParsing="false" text="ToggleButton" toggleGroup="$toggleGroup1" />
+      <ToggleButton layoutX="262.0" layoutY="29.0" mnemonicParsing="false" text="ToggleButton" toggleGroup="$toggleGroup1" />
+       <Label fx:id="label" layoutX="24.0" layoutY="61.0" prefHeight="29.0" prefWidth="161.0" text="Label" />
+      <TextField fx:id="textField" layoutX="24.0" layoutY="102.0" onAction="#onAction" onInputMethodTextChanged="#textChanged" promptText="jkllk" />
+   </children>
+</AnchorPane>

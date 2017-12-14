@@ -1,6 +1,9 @@
 package uicomponents;
 
 import javafx.application.Application;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Orientation;
 import javafx.scene.Scene;
@@ -67,5 +70,21 @@ public class UiComponents extends Application {
             }
         });
         flowPane.getChildren().addAll(label1, label2, label3);
+
+        FirstLineService service = new FirstLineService();
+        service.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent workerStateEvent) {
+                workerStateEvent.getSource().getValue();
+            }
+        });
+    }
+}
+
+class FirstLineService extends Service<String> {
+
+    @Override
+    protected Task<String> createTask() {
+        return null;
     }
 }
