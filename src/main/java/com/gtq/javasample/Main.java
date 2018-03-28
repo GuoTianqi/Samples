@@ -10,5 +10,7 @@ public class Main {
         assert 1 == 2 : "错误";
 
         RsaSample.testRsa();
+
+        System.out.println("" + (1 << 9));
     }
 }
