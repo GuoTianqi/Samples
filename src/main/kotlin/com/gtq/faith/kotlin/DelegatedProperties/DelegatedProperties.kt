@@ -29,7 +29,7 @@ class Example {
 
         override fun setValue(thisRef: Example, property: KProperty<*>, value: String) {
             println("$value has been assigned to '${property.name} in $thisRef.'")
-            thisRef.p = value
+            //thisRef.p = value
         }
 
     }

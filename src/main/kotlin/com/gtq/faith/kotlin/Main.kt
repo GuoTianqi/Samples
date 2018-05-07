@@ -1,6 +1,7 @@
 package com.gtq.faith.kotlin
 
 import com.gtq.faith.kotlin.ext.toString
+import com.gtq.faith.kotlin.reflection.length
 
 /**
  * Created by guotianqi on 2017/6/6.
@@ -38,6 +39,9 @@ fun main(args: Array<String>) {
     println(nullObject.toString())
 
     println("nanoTime = ${System.nanoTime()}")
+
+    val strs = listOf("a", "bc", "def")
+    println(strs.map { it.length })
 }
 
 abstract class Source<out T> {
