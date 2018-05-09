@@ -1,10 +1,8 @@
 package com.gtq.javasample;
 
-import com.sun.istack.internal.NotNull;
-
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class Java7NewFeature {
     public static void main(String[] args) {
@@ -35,7 +33,7 @@ public class Java7NewFeature {
     }
 
     public static class Lambda<T> {
-        public void apply(@NotNull List<T> list, @NotNull Action<T> action) {
+        public void apply(@Nonnull List<T> list, @Nonnull Action<T> action) {
             for (T t: list) {
                 action.perform(t);
             }
