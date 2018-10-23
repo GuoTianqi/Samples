@@ -12,7 +12,7 @@ public class CoffeeApp {
   }
 
   public static void main(String[] args) {
-    CoffeeShop coffeeShop = DaggerCoffeeApp_CoffeeShop.builder().build();
-    coffeeShop.maker().brew();
+//    CoffeeShop coffeeShop = DaggerCoffeeApp_CoffeeShop.builder().build();
+//    coffeeShop.maker().brew();
   }
 }
