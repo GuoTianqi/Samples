@@ -1,7 +1,7 @@
 package com.gtq.javasample;
-
-import java.awt.*;
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by guotianqi on 2017/7/8.
@@ -16,13 +16,13 @@ public class Main {
 
         System.out.println("" + (1 << 9));
 
-
-        Point point = new Point();
-        System.out.println(Point.class.getName());
-        if (Point.class.getName().equals(point.getClass().getName())) {
-            System.out.println("True");
-        }
-
         System.out.println(Integer.valueOf("89"));
+
+        List<String> ruleIds = new ArrayList();
+        ruleIds.add("1111111111");
+        ruleIds.add("2222222222222");
+        System.out.println(ruleIds);
+
+        System.out.println("&111&22&&33&".replace("&", "&amp;"));
     }
 }
