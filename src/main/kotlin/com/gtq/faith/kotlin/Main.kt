@@ -21,7 +21,7 @@ fun main(args: Array<String>) {
 
     println(x);
 
-    val person = Person("Tianqi", "Guo", 31);
+    val person = Person(lastName = "Tianqi", firstName = "Guo", age = 31);
     println(
             "persion firstName=${person.firstName}, lastName=${person.lastName}, " +
                     "age=${person.age}, isOld=${person.isOld}, children = "

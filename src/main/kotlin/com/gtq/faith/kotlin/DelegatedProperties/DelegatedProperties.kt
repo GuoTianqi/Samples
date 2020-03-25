@@ -13,6 +13,10 @@ fun main(args: Array<String>) {
     println(example.lazyValue)
 
     val sum: (Int, Int) -> Int = { x, y -> x + y }
+
+    example {
+        Example()
+    }
 }
 
 class Example {
@@ -32,5 +36,21 @@ class Example {
             //thisRef.p = value
         }
 
+    }
+
+    fun isValid(): Boolean {
+        return true;
+    }
+
+    fun doSomethins() {
+
+    }
+}
+
+fun example(computeFoo: () -> Example) {
+    val memoizedExample by lazy(computeFoo)
+
+    if (true && memoizedExample.isValid()) {
+        memoizedExample.doSomethins()
     }
 }

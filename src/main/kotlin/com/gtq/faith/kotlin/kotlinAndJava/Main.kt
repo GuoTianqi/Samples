@@ -1,8 +1,8 @@
 package com.gtq.faith.kotlin.kotlinAndJava
 
+import com.gtq.faith.java.JavaArrayExample
 import java.util.*
 import java.util.concurrent.Executors
-import java.util.concurrent.ThreadPoolExecutor
 
 fun main(args: Array<String>) {
     val list = ArrayList<String>() // non-null (constructor result)
